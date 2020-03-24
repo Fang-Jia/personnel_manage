@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!--    配置员工管理    控制层实体类-->
+    <bean id="emplAction" class="com.xf.action.EmplAction">
+<!--        配置DeptService属性-->
+        <property name="emplService" ref="emplService"/>
+    </bean>
+
+<!--    配置员工管理    业务层实体类-->
+    <bean id="emplService" class="com.xf.service.EmplService">
+<!--        注入DeptDao属性-->
+        <property name="emplDao" ref="emplDaoImpl"/>
+    </bean>
+
+<!--    配置员工管理    数据访问层实体类-->
+    <bean id="emplDaoImpl" class="com.xf.dao.impl.EmplDaoImpl">
+<!--        注入HibernateTemplate模板-->
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+
+</beans>

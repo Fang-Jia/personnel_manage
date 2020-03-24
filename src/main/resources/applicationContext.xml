@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!--    spring引入hibernate相关配置信息-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql:///personnel_management?useUnicode=true&amp;characterEncoding=UTF8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="8530"/>
+    </bean>
+
+<!--    spring配置SessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+<!--        注入dataSource-->
+        <property name="dataSource" ref="dataSource"/>
+
+<!--        指定hibernate核心配置文件的位置-->
+        <property name="configLocations" value="classpath:hibernate.cfg.xml"/>
+    </bean>
+
+<!--    配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+<!--        注入sessionFactory-->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+<!--    开启事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+<!--    配置hibernateTemplate模板-->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+<!--    开启注解扫描：到包里扫描类、方法、属性上面是否有注解-->
+    <context:component-scan base-package="com.xf"/>
+
+<!--    开启自动动态代理模式：通过注解的形式来配置aop-->
+    <aop:aspectj-autoproxy/>
+
+<!--    引入外部spring文件-->
+    <import resource="com/xf/config/spring/UserSpring.xml"/>
+    <import resource="com/xf/config/spring/DeptSpring.xml"/>
+    <import resource="com/xf/config/spring/EmplSpring.xml"/>
+    <import resource="com/xf/config/spring/PositionSpring.xml"/>
+    <import resource="com/xf/config/spring/PaySpring.xml"/>
+    <import resource="com/xf/config/spring/LeaveSpring.xml"/>
+    <import resource="com/xf/config/spring/CardSpring.xml"/>
+
+</beans>

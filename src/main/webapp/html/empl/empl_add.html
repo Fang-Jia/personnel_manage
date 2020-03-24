@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加部门</title>
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet" media="all">
+</head>
+<body>
+<form class="layui-form-pane layui-form model-form" action="/empl_addEmplInfo.action" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="name" placeholder="请输入员工姓名" type="text" class="layui-input" lay-verify="required"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="0" title="男">
+            <input type="radio" name="sex" value="1" title="女" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="age" placeholder="请输入年龄" type="number" max="100" min="0" class="layui-input" lay-verify="required" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">职位<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="position" placeholder="请输入职位" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">入职时间<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="entryTime" id="entryTime" placeholder="入职时间" type="text" class="layui-input" lay-verify="required" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">出生年月<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="dateOfBirth" id="dateOfBirth" placeholder="出生年月" type="text" class="layui-input" lay-verify="required" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">学历<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="education" placeholder="请输入学历" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">毕业院校<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="graduateSchool" placeholder="请输入毕业院校" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">专业<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="specialty" placeholder="请输入专业" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">毕业时间<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="graduateTime" id="graduateTime" placeholder="毕业时间" type="text" class="layui-input" lay-verify="required" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">证件信息<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="idCard" placeholder="请输入证件信息" type="text" class="layui-input" lay-verify="required\identity" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系方式<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="phone" placeholder="请输入联系方式" type="text" class="layui-input" lay-verify="phone\required" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="email" placeholder="请输入邮箱" type="email" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">省份<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="province" placeholder="请输入省份" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">地市<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="cities" placeholder="请输入地市" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">县区<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="county" placeholder="请输入县区" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属部门<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="dept_name" placeholder="请输入所属部门" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">部门领导<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input name="dept_leader" placeholder="请输入部门领导" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否已婚</label>
+        <div class="layui-input-block">
+            <input type="radio" name="marry" value="0" title="是">
+            <input type="radio" name="marry" value="1" title="否" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">子女是否上学</label>
+        <div class="layui-input-block">
+            <input type="radio" name="childToStudy" value="0" title="是">
+            <input type="radio" name="childToStudy" value="1" title="否" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="submitInfo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script src="../../assets/layui/layui.js"></script>
+<script src="../../assets/js/empl/employee.js"></script>
+</body>
+</html>

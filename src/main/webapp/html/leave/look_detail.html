@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看请假信息</title>
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet">
+    <style>
+        td{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <table class="layui-table">
+        <tr>
+            <td>部门</td>
+            <td id="deptName"></td>
+        </tr>
+        <tr>
+            <td>申请人</td>
+            <td id="name"></td>
+        </tr>
+        <tr>
+            <td>申请时间</td>
+            <td id="checkTime"></td>
+        </tr>
+        <tr>
+            <td>请假事由</td>
+            <td id="reason"></td>
+        </tr>
+        <tr>
+            <td>开始时间</td>
+            <td id="leaveTime"></td>
+        </tr>
+        <tr>
+            <td>结束时间</td>
+            <td id="endTime"></td>
+        </tr>
+        <tr>
+            <td>累计时间</td>
+            <td id="totalDay"></td>
+        </tr>
+        <tr>
+            <td>拟请假形式</td>
+            <td id="leaveType"></td>
+        </tr>
+        <tr>
+            <td>审批状态</td>
+            <td id="status"></td>
+        </tr>
+    </table>
+<script src="../../assets/layui/layui.js"></script>
+<script src="../../assets/js/leave/look_detail.js"></script>
+</div>
+</body>
+</html>

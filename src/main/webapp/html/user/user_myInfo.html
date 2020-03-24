@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet" media="all">
+    <style>
+        .table-name{
+            font-size: 40px;
+            margin-left: 20px;
+            font-family: 幼圆,serif;
+            color: #495c69;
+            font-weight: 300;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2 class="table-name">用户信息表</h2>
+
+<table id="user" lay-filter="user-event"></table>
+
+<script type="text/html" id="tool">
+    <a class="layui-btn layui-btn-xs" lay-event="edit" id="edit">编辑</a>
+</script>
+
+<script src="../../assets/layui/layui.js"></script>
+<script src="../../assets/js/user/user_myInfo.js"></script>
+</body>
+</html>

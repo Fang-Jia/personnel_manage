@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xf.entity.Department" table="t_department">
+        <id name="did" column="d_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="d_name"/>
+        <property name="description" column="description"/>
+        <property name="leader" column="leader"/>
+
+        <set name="employeeSet" cascade="delete" lazy="false" >
+            <key column="deid"/>
+            <one-to-many class="com.xf.entity.Employee"/>
+        </set>
+    </class>
+</hibernate-mapping>

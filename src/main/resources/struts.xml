@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <include file="com/xf/config/struts/UserStruts.xml"/>
+    <include file="com/xf/config/struts/DeptStruts.xml"/>
+    <include file="com/xf/config/struts/EmplStruts.xml"/>
+    <include file="com/xf/config/struts/PositionStruts.xml"/>
+    <include file="com/xf/config/struts/PayStruts.xml"/>
+    <include file="com/xf/config/struts/LeaveStruts.xml"/>
+    <include file="com/xf/config/struts/CardStruts.xml"/>
+</struts>

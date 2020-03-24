@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请请假</title>
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet" media="all">
+    <style>
+        .check1{
+            width: 203px;
+            float: left;
+        }
+        .check2{
+            width: 180px;
+            float: left;
+        }
+        .font{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend style="text-align: center;font-size: 30px">员工请假表</legend>
+    </fieldset>
+    <form id="leaveForm" action="/leave_addInfo" class="layui-form layui-form-pane model-form">
+        <div class="layui-row">
+            <label class="layui-form-label check2">部门</label>
+            <input name="deptName" placeholder="请输入部门名称" type="text" class="layui-input check1" lay-verify="required" autocomplete="on"/>
+
+            <label class="layui-form-label check2">申请人</label>
+            <input name="name" placeholder="请输入申请人" type="text" class="layui-input check1" lay-verify="required" autocomplete="on"/>
+
+            <label class="layui-form-label check2">申请时间</label>
+            <input id="checkTime" name="checkTime" placeholder="请输入申请时间" type="text" class="layui-input check1" lay-verify="required" autocomplete="off"/>
+        </div>
+        <div class="layui-row">
+            <textarea name="reason" required lay-verify="required" placeholder="事由：" class="layui-textarea"></textarea>
+        </div>
+
+        <br><p class="font">拟请假时间：</p>
+        <div  class="layui-row">
+            <label class="layui-form-label check2">开始时间</label>
+            <input id="start" type="text" class="layui-input check1" name="leaveTime" lay-verify="required" placeholder="请输入请假开始时间" autocomplete="off">
+
+            <label class="layui-form-label check2">结束时间</label>
+            <input id="end" type="text" class="layui-input check1" name="endTime" lay-verify="required" placeholder="请输入请假结束时间" autocomplete="off">
+
+            <label class="layui-form-label check2">累计时间</label>
+            <input type="text" class="layui-input check1" name="totalDay" lay-verify="required" placeholder="请输入累计天数" autocomplete="off">
+        </div>
+
+        <br><p class="font">拟请假形式：</p>
+        <input type="radio" name="leaveType" value="0" title="年休假">
+        <input type="radio" name="leaveType" value="1" title="事假">
+        <input type="radio" name="leaveType" value="2" title="病假">
+        <input type="radio" name="leaveType" value="3" title="产假">
+        <input type="radio" name="leaveType" value="4" title="丧假">
+        <input type="radio" name="leaveType" value="5" title="婚假">
+        <input type="radio" name="leaveType" value="6" title="护理假">
+        <input type="radio" name="leaveType" value="7" title="工伤假">
+        <input type="radio" name="leaveType" value="8" title="其他">
+
+<!--        传递审批状态信息-->
+        <input type="hidden" name="status" value="0">
+        <div class="layui-form-item" style="margin-top: 40px">
+            <button class="layui-btn" lay-submit lay-filter="submitInfo">提交申请</button>
+        </div>
+    </form>
+</div>
+
+<script src="../../assets/layui/layui.js"></script>
+<script>
+    layui.use(['form','laydate'],function () {
+        let form = layui.form;
+        let laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#start'
+        });
+        laydate.render({
+            elem: '#end'
+        });
+        laydate.render({
+            elem: '#checkTime'
+        });
+    })
+</script>
+</body>
+</html>

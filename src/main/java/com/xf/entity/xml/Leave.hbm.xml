@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xf.entity.Leave" table="t_leave">
+        <id name="lid" column="l_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="l_name"/>
+        <property name="deptName" column="d_name"/>
+        <property name="checkTime" column="check_time"/>
+        <property name="reason" column="reason"/>
+        <property name="leaveTime" column="leave_time"/>
+        <property name="endTime" column="end_time"/>
+        <property name="totalDay" column="total_day"/>
+        <property name="leaveType" column="leave_type"/>
+        <property name="status" column="status"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑部门信息</title>
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet" media="all">
+</head>
+<body>
+<form class="layui-form-pane layui-form model-form" action="/pay_editPay">
+    <div class="layui-form-item">
+        <label class="layui-form-label">员工名称<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="name" name="name" placeholder="请输入员工名称" type="text" class="layui-input" lay-verify="required"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">基本工资<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="monthPay" name="monthPay" placeholder="请输入基本工资" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">绩效工资<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="performance" name="performance" placeholder="请输入绩效工资" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">伙食补贴<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="foodAllowance" name="foodAllowance" placeholder="请输入伙食补贴" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">通讯补贴<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="phoneAllowance" name="phoneAllowance" placeholder="请输入通讯补贴" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">交通补贴<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="travelAllowance" name="travelAllowance" placeholder="请输入交通补贴" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">津贴<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="allowance" name="allowance" placeholder="请输入津贴" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">加班工资<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="overtimeAllowance" name="overtimeAllowance" placeholder="请输入加班工资" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">迟到早退扣款<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="reduceAllowance" name="reduceAllowance" placeholder="请输入迟到早退扣款" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">事假扣款<span style="color: red;">*</span></label>
+        <div class="layui-input-block">
+            <input id="casualReduceAllowance" name="casualReduceAllowance" placeholder="请输入事假扣款" type="text" class="layui-input" lay-verify="required" autocomplete="on"/>
+        </div>
+    </div>
+    <div class="layui-form-item" style="text-align: center">
+        <button class="layui-btn layui-btn-primary" type="button" id="cancel">取消</button>
+        <button class="layui-btn" lay-submit lay-filter="saveInfo">保存</button>
+    </div>
+</form>
+<script src="../../assets/layui/layui.js"></script>
+<script src="../../assets/js/pay/pay_edit.js"></script>
+</body>
+</html>

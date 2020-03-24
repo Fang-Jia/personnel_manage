@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xf.entity.Pay" table="t_pay">
+        <id name="pid" column="p_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="p_name"/>
+        <property name="monthPay" column="monthPay"/>
+        <property name="performance" column="performance"/>
+        <property name="foodAllowance" column="food_allowance"/>
+        <property name="phoneAllowance" column="phone_allowance"/>
+        <property name="travelAllowance" column="travel_allowance"/>
+        <property name="allowance" column="allowance"/>
+        <property name="overtimeAllowance" column="overtime_allowance"/>
+        <property name="reduceAllowance" column="reduce_allowance"/>
+        <property name="casualReduceAllowance" column="casualReduce_allowance"/>
+        <property name="personnelTax" column="personnel_tax"/>
+        <property name="total" column="total"/>
+
+    </class>
+</hibernate-mapping>

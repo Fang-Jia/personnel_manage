@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xf.entity.Employee" table="t_employee">
+        <id name="eid" column="e_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name"/>
+        <property name="sex" column="sex"/>
+        <property name="age" column="age"/>
+        <property name="position" column="position"/>
+        <property name="entryTime" column="entry_time" type="date"/>
+        <property name="dateOfBirth" column="date_birth" type="date"/>
+        <property name="education" column="education"/>
+        <property name="graduateSchool" column="graduate_school"/>
+        <property name="specialty" column="specialty"/>
+        <property name="graduateTime" column="graduate_time" type="date"/>
+        <property name="idCard" column="id_card"/>
+        <property name="phone" column="phone"/>
+        <property name="email" column="email"/>
+        <property name="province" column="province"/>
+        <property name="cities" column="cities"/>
+        <property name="county" column="county"/>
+        <property name="marry" column="marry"/>
+        <property name="childToStudy" column="child_to_study"/>
+
+        <many-to-one name="department" class="com.xf.entity.Department" column="deid" lazy="false"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xf.entity.Position" table="t_position">
+        <id name="pid" column="p_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="d_name"/>
+        <property name="description" column="description"/>
+        <property name="leader" column="leader"/>
+
+    </class>
+</hibernate-mapping>

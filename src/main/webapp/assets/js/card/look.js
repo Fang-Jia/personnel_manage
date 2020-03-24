@@ -1,0 +1,97 @@
+
+layui.use(['table'],function () {
+   let table = layui.table;
+   let $ = layui.$;
+
+   let tableId = 'lookInfo';
+
+   table.render({
+       elem: '#' + tableId,
+       height: 640,
+       url: '/card_pageInfo',
+       page: true,
+       limit: 10,  //设置每页显示的条数，值低于page参数中的limit参数
+       loading: true,  //是否开启加载条
+       text: {
+           none: '暂无相关数据'  //定义空数据时的异常提示
+       },
+       skin: 'row',    //开启列边框样式
+       even: true,     //设置表格开启隔行背景
+       size: 'lg',     //设置表格的尺寸
+       cols: [[
+           {field: 'cid', title: 'ID', width: '5%', fixed: 'left', align: 'center'},
+           {field: 'name', title: '姓名', width: '6%', align: "center"},
+           {field: 'deptName', title: '部门', width: '7%', align: "center"},
+           {field: 'checkTimeStr', title: '申请日期', width: '10%', align: "center"},
+           {field: 'cardTimeStr', title: '未打卡日', width: '10%', align: "center"},
+           {field: 'reason', title: '未打卡原因', width: '10%', align: "center"},
+           {field: 'checkName', title: '申请人', width: '10%', align: "center"},
+           {field: 'deptLeader', title: '部门主管', width: '8%', align: "center"},
+           {field: 'statusText', title: '审批状态', align: "center"},
+           {fixed: 'right', title: '操作', align: "center", toolbar: '#tool'}
+       ]],
+       done: function (res) {
+           let ele = document.getElementsByClassName('laytable-cell-1-0-9');
+           for (let x = 1; x < ele.length/2; x++){
+               let cid = res.data[x-1].cid;
+               ele[x].children[0].id = 'detail-' + cid;
+               ele[x].children[1].id = 'agree-' + cid;
+               ele[x].children[2].id = 'refuse-' + cid;
+
+               if (res.data[x-1].statusText === '已审批'){
+                   document.getElementById('agree-'+cid).style.display = 'none';
+                   document.getElementById('refuse-'+cid).style.display = 'none';
+               }else if (res.data[x-1].statusText === '已拒绝'){
+                   document.getElementById('agree-'+cid).style.display = 'none';
+                   document.getElementById('refuse-'+cid).style.display = 'none';
+                   document.getElementById('detail-'+cid).style.display = 'none';
+               }
+           }
+       }
+   });
+
+    //    监听工具栏点击事件
+    table.on('tool(look-event)',function (obj) {
+        let data = obj.data;    //获取当前行数据
+        let event = obj.event;  //获取lay-event的值
+        let tr = obj.tr;    //获取当前行tr的dom对象
+
+        let cid = data.cid;
+
+        //编辑事件
+        if (event === 'detail'){
+            layer.open({
+                type: 2,
+                title: ['修改部门信息'],
+                skin: 'layui-layer-molv',
+                area: ['700px','600px'],
+                shadeClose: true,
+                content: '/card_detail?cid=' + cid,
+            });
+        }
+        else if (event === 'agree'){
+            $.ajax({
+                type: 'get',
+                url: '/card_agree?cid=' + cid,
+            });
+            layer.open({
+                content: '已同意',
+                end: function () {
+                    table.reload(tableId);
+                }
+            });
+        }
+        else if (event === 'refuse'){
+            $.ajax({
+                type: 'get',
+                url: '/card_refuse?cid=' + cid,
+            });
+            layer.open({
+                content: '已拒绝',
+                end: function () {
+                    table.reload(tableId);
+                }
+            });
+        }
+    });
+});

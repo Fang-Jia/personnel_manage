@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!--    配置部门    控制层实体类-->
+    <bean id="leaveAction" class="com.xf.action.LeaveAction">
+<!--        配置DeptService属性-->
+        <property name="leaveService" ref="leaveService"/>
+    </bean>
+
+<!--    配置部门    业务层实体类-->
+    <bean id="leaveService" class="com.xf.service.LeaveService">
+<!--        注入DeptDao属性-->
+        <property name="leaveDao" ref="leaveDaoImpl"/>
+    </bean>
+
+<!--    配置部门    数据访问层实体类-->
+    <bean id="leaveDaoImpl" class="com.xf.dao.impl.LeaveDaoImpl">
+<!--        注入HibernateTemplate模板-->
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+
+</beans>

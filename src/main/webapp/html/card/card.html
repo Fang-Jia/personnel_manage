@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请请假</title>
+    <link href="../../assets/layui/css/layui.css" rel="stylesheet" media="all">
+    <style>
+        .check1{
+            width: 172px;
+            float: left;
+        }
+        .check2{
+            width: 200px;
+            float: left;
+        }
+        .check3{
+            float: left;
+        }
+        .check4{
+            width: 78.5%;
+        }
+        .model-form input, .model-form label{
+            height: 50px !important;
+        }
+        .model-form label{
+            text-align: center;
+            line-height: 30px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend style="text-align: center;font-size: 30px">员工补卡表</legend>
+    </fieldset>
+    <form id="leaveForm" action="/card_addInfo" class="layui-form layui-form-pane model-form">
+        <div class="layui-row">
+            <label class="layui-form-label check2">姓名</label>
+            <input name="name" placeholder="请输入姓名" type="text" class="layui-input check1" lay-verify="required" autocomplete="on"/>
+
+            <label class="layui-form-label check2">部门</label>
+            <input name="deptName" placeholder="请输入所属部门" type="text" class="layui-input check1" lay-verify="required" autocomplete="on"/>
+
+            <label class="layui-form-label check2">申请时间</label>
+            <input id="checkTime" name="checkTime" placeholder="请输入申请时间" type="text" class="layui-input check1" lay-verify="required" autocomplete="off"/>
+        </div>
+        <div class="layui-row">
+            <label class="layui-form-label check3">未打卡日</label>
+            <input id="cardTime" name="cardTime" placeholder="请输入申请时间" type="text" class="layui-input check4" lay-verify="required" autocomplete="off"/>
+
+            <label class="layui-form-label check3">未打卡原因</label>
+            <input name="reason" placeholder="请输入未打卡原因" type="text" class="layui-input check4" lay-verify="required" autocomplete="on"/>
+        </div>
+
+        <div class="layui-row">
+            <label class="layui-form-label check3">申请人</label>
+            <input name="checkName" placeholder="请输入申请人姓名" type="text" class="layui-input check4" lay-verify="required" autocomplete="on"/>
+
+            <label class="layui-form-label check3">部门主管</label>
+            <input name="deptLeader" placeholder="请输入部门主管姓名" type="text" class="layui-input check4" lay-verify="required" autocomplete="on"/>
+        </div>
+
+<!--        传递审批状态信息-->
+        <input type="hidden" name="status" value="0">
+        <div class="layui-form-item" style="margin-top: 40px">
+            <button class="layui-btn" lay-submit lay-filter="submitInfo">提交申请</button>
+        </div>
+    </form>
+</div>
+
+<script src="../../assets/layui/layui.js"></script>
+<script>
+    layui.use(['form','laydate','layer'],function () {
+        let form = layui.form;
+        let laydate = layui.laydate;
+        let layer = layui.layer;
+
+        laydate.render({
+            elem: '#cardTime'
+        });
+        laydate.render({
+            elem: '#checkTime'
+        });
+
+        //监听提交
+        form.on('submit(submitInfo)', function(data){
+            layer.open({
+                title: '申请补卡',
+                content: '您已提交申请成功，审批中'
+            })
+        });
+    })
+</script>
+</body>
+</html>
